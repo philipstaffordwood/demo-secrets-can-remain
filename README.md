@@ -11,7 +11,7 @@ cd demo-secrets-can-remain
 docker build . -t secrets
 ```
 
-Have a look at the [Dockerfile](./Dockerfile), it copies in a secret text file that later gets deleted and it copies in a secret text file that later gets overwritted.
+Have a look at the [Dockerfile](./Dockerfile), it copies in a secret text file that later gets deleted and it copies in a secret text file that later gets overwritten.
 
 ## Save Image as TAR file
 Images can be exported as TAR file. Do this:
@@ -32,11 +32,11 @@ Now any secrets left?
 ### Overwritten Secrets
 Let's look for the overwritten secret:
 ```bash
-grep -r "This secret file is to be overwritted"
+grep -r "This secret file is to be overwritten"
 ```
 yep!
 ```
-user@server:/code/bigbaobab/qa/demo-secrets-can-remain/stuff$ grep -r "This secret file is to be overwritted" .
+user@server:/code/bigbaobab/qa/demo-secrets-can-remain/stuff$ grep -r "This secret file is to be overwritten" .
 Binary file ./19a9c8b11005792ba02317d2a4cebfa3222308fd311b8f8e8499bf30e50a0084/layer.tar matches
 ./19a9c8b11005792ba02317d2a4cebfa3222308fd311b8f8e8499bf30e50a0084/layer.tar.dir/files/secret.txt:This secret file is to be overwritted in a "later" layer, but is it gone?
 ```
